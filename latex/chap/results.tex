@@ -1,0 +1,15 @@
+\section{Results and discussion}
+
+Two areas were chosen for the experiment. One is the sea area near Sakhalin and another is the sea area near Noordwijk. Example of the detected object by the algorithm is shown on Figure \ref{fig:ship}.
+
+\figi{ship}{fig:ship}{Example of The Detected Object by The Algorithm}{0.5\textwidth}
+
+Example of geo-visualization for detected objects near Sakhalin is shown on Figure \ref{fig:geovis}.
+
+\figi{geovis}{fig:geovis}{Example of Geo-Visualization for Detected Objects}{0.9\textwidth}
+
+While trying to compare the coordinates of detected objects with \gls{AIS} data, it was investigated that data source for \gls{AIS} is incomplete, because it contains the information only for a limited longitude range (see Fig. \ref{fig:hist}).
+
+\figi{hist}{fig:hist}{Histogram of Longitude Distribution of AIS data on November 1, 2017}{0.9\textwidth}
+
+As the \gls{AIS} data was incomplete, so it was not possible to use it for checking the accuracy of the ship detection algorithm. Then, the exploration of available \gls{AIS} data sources can be considered as one of the task for further research.

@@ -1,0 +1,3 @@
+\section{Approach}
+
+The main idea for developing a ship detection algorithm in this project is that if take the difference of two satellite images of the same sea area but of different dates, then all the objects will be filtered by some threshold value except only ships. However, that is not always the case and the additional information, such as AIS data, can be used to set “ship” and “no ship” labels for detected objects. Then, the obtained dataset will be used for training a machine learning algorithm to be able to perform ship detection without using \gls{AIS} in future.

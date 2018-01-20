@@ -1,0 +1,62 @@
+%%%%%%%%%%%%%%%%%%%%
+%% eSpace Report template		%
+%% Main file					%
+%%%%%%%%%%%%%%%%%%%%
+
+%---- Provide document class - DO NOT MODIFY ----%
+\documentclass{SkoltechReport}
+
+%---- Bibliography docs come here ----%
+\addbibresource{refdoc.bib}				% Reference documents (e.g. ECSS)
+
+%---- Parameters to modify ----%
+\author{Vasilii Mosin}						% Author Name
+%\projectPhase{Phase C}					% Phase of the project
+\projectName{Sentinel Data Processing Pipeline for Automatic Ship Detection}		% Project Name
+%\subtitle{Proposal for the Swiss Space Office}						% Subtitle for the project
+\projectType{Research Project}				% Type of project
+\checkedBy{ }							% Name of first assistant
+\approvedBy{ }							% Name of professor
+%\revisionNum{0}							% Document revision number
+
+
+%-------COMMON acronyms----------- % 
+\newacronym{ESA}{ESA}{European Space Agency}
+\newacronym{AIS}{AIS}{Automatic Identification System}
+\newacronym{API}{API}{Application Programming Interface}
+
+\makeglossaries
+
+%---- DO NOT TOUCH THIS PART ----%
+\begin{document}
+\maketitle
+\thispagestyle{fancy}
+\pagenumbering{arabic}
+\setcounter{page}{1}
+% \makerecordofrevision					% Edit entries in chap/recordofrevisions.tex
+\tableofcontents \clearpage
+%\makelistoftables
+\printglossaries
+\addcontentsline{toc}{section}{Acronyms}
+%----- Bilbliography ----%
+\makebibliography
+\makelistoffigures
+
+%---- Add your files here from chap folder ----%
+\input{chap/intro}
+\input{chap/requirements}
+\input{chap/approach}
+\input{chap/implementation}
+\input{chap/results}
+\input{chap/conclusion}
+
+% \appendix
+% %---- Add your appendix files here from appendix folder ----%
+% \input{appendix/example}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

@@ -1,0 +1,7 @@
+\section{Implementation}
+
+The Sentinel data was downloaded from Copernicus Open Access Hub \cite{copernicus} manually, however, the \gls{API} for this website exists and can be used in future stages of the project. Downloaded images were preprocessed using Sentinel Application Platform (SNAP) \cite{snap} and saved in GeoTIFF format. Processing graph for Sentinel-1 images is shown on Figure \ref{fig:graph}.
+
+\figi{graph}{fig:graph}{Processing Graph for Sentinel-1 Images in SNAP}{0.8\textwidth}
+
+A simple algorithm for getting difference image and applying the threshold value was implemented in Python. Geo-visualization for detected objects was also implemented in Python by using Folium \cite{folium} library. \gls{AIS} data was taken from \cite{ais}.
