@@ -1,0 +1,17 @@
+\section{Results and Discussion}
+
+The \gls{cnn} has achieved the 0.98 accuracy score on the train set and 0.97 accuracy score on the validation set. To be able to apply the trained \gls{cnn}, the images of the detected objects should have the 51 x 51 pixel size. So, the images of the appropriate size with the centroid in coordinates of the detected objects were cropped from the original \gls{sar} image. The 63 objects in total were detected during preliminary stem using \gls{snap} application for the one small region of the \gls{aoi}, where 17 objects are the true ships and 46 objects are false positives coastal areas. After the second step of the additional objects classification using \gls{cnn} 16 objects were classified as ships, where 15 objects are true ships (Figure \ref{fig:detected} a, b) and 1 object is false positive coastal area (Figure \ref{fig:detected} c). Accordingly, 47 objects were classified as non-ships, where 45 objects are true non-ships (Figure \ref{fig:detected} d, e) and 2 object is a ship (Figure \ref{fig:detected} f).\figi{detected}{fig:detected}{Examples of the Detected Objects}{0.8\textwidth}
+
+So, the overall quality of the proposed approach is quite good. The additional objects classification step using \gls{cnn} allowed to get rid of 45 false positive detections out of 46, while loosing only 2 real ships.
+
+\figi{ships}{fig:ships}{Location of the Detected Ships (red: Image1, green: Image2, blue: Image3)}{0.8\textwidth}
+
+For further improvement of the classification step one can collect and use bigger and more relevant training dataset for \gls{cnn}. One of the reason that the accuracy of the \gls{cnn} is high on the train and validation data, but not very good for test data, is that the dataset from \cite{data} was collected using not only Sentinel-1 satellite and there are not so much examples of the false positives coastal areas, which are arising very frequently during ships detection on the rivers.
+
+\figi{stationary}{fig:stationary}{Location of the Stationary Ships}{0.8\textwidth}
+
+The same experiment was done also for two bigger regions of the \gls{aoi}, where 459 and 440 objects were detected in \gls{snap} application, among which 52 and 59 objects correspondingly were classified by the \gls{cnn} as ships. The all ships that were detected and classified are shown on the geographical map (Figure \ref{fig:ships}).
+
+\figi{stationary_example}{fig:stationary_example}{Example of the Stationary Ships}{1.0\textwidth}
+
+Additionally, stationary ships were found, i.e. those detected objects, which are at the same point for Image2 (July) and Image3 (August). In total, 10 such stationary ships were detected (Figure \ref{fig:stationary}). Example of the two found stationary ships is shown on Figure \ref{fig:stationary_example}: a) - location on the map, b) - stationary ship on the Image1 (July), c) - stationary ship on the Image2 (August). The objects shown on the example stay at the same point, but rotate a little (see Figure \ref{fig:stationary_example}).

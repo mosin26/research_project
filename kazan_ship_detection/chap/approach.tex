@@ -1,0 +1,26 @@
+\section{Approach and Implementation}
+
+As it was mentioned above, the main idea of the project is to use the standard tools for objects detection on the river and then apply \gls{cnn} for classification of detected objects.
+
+\subsection{Preliminary Objects Detection}
+
+All preliminary objects detections were made in \gls{snap}. This software has a built-in ship detection module. Before applying this module in order to avoid detection of false targets (ships) on land it is needed to perform a land masking. The Land/Water Algorithm in \gls{snap} takes the geographic bounds of the input image and creates the new image covering the same area. The output image contains a single band, which indicates if a pixel is a land or water. Example of the original and masked images of the \gls{aoi} is shown on Figure \ref{fig:example}.
+
+\figi{example}{fig:example}{Original (left) and Masked (right) Images of the \gls{aoi}}{0.8\textwidth}
+
+The masking operation is not very accurate because of complicated landforms in the \gls{aoi}, which will be the reason of false detections further.
+
+For object detection \gls{snap} uses adaptive thresholding algorithm. Adaptive thresholding is a frequently used method for target detection in \gls{sar} imagery. The underlying assumption is that targets appear bright on dark background. The adaptive thresholding algorithm is applied in moving window. For each pixel under test (central pixel) a new threshold value is calculated based on the statistical characteristics of its local background: if the pixel value is above the threshold the pixel is classified as target pixel.
+
+The specific type of adaptive thresholding algorithm used in the \gls{snap} is a Two-Parameter \gls{cfar} Detector. The user defines the parameters of the moving window (Figure \ref{fig:threshold}) where the Target cell corresponds to one or multiple pixels under test; the Buffer window prevents contamination of the background values by the target pixels; the values within the Background window represent the local background and are used to determine the \gls{pdf} of fitted Gaussian distribution. The threshold value is then calculated as shown on the right side of the Figure \ref{fig:threshold}.
+
+\figi{threshold}{fig:threshold}{Adaptive Thresholding}{0.8\textwidth}
+
+\subsection{Additional Objects Classification}
+
+Built-in objects detection algorithm in \gls{snap} produces a lot of false ships detection, especially near the coastal region. So, the further step is to classify whether the detected object is a ship or not. For this, it is proposed to use a simple \gls{cnn}. Architecture of the \gls{cnn} used in this project can be found in the accompanying Jupyter Notebook. To build and train the gls{cnn} Keras with TensorFlow stack was being used in a Python language environment.
+
+The dataset that is described in \cite{data} was selected as the training data. It contains 1596 \gls{sar} images of the ships and 6384 \gls{sar} images of the false positives (ship-like) areas. Each image it this dataset has the size of 51 x 51 pixels (Figure \ref{fig:dataset}).
+
+\figi{dataset}{fig:dataset}{Example of the Training Data (first row - ships, second row - ship-like areas)}{0.8\textwidth}
+

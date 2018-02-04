@@ -1,0 +1,26 @@
+\section{Driving Technical Requirements}
+
+The goal of this project is to explore the possibility of the usage of the \gls{sar} satellite imagery for ship detection on Volga river. Three regions inside the \gls{aoi} were chosen for the experimental part (Figure \ref{fig:aoi}): there are one smaller and two bigger regions (Table \ref{table:1}).\figi{kazan}{fig:aoi}{Regions of \gls{aoi}}{0.8\textwidth}The whole procedure should be fully automated and developed using existing libraries and tools. Experiment setup and results discussion should be clearly represented to analyze how well the presented approach works on the images of \gls{aoi}.
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Image} & \textbf{Sensing Date} & \textbf{Region} \\ 
+\hline
+Image1 & 2017-06-02T03:04:13.563Z & small \\
+\hline
+Image2 & 2017-07-08T03:04:15.560Z & big \\
+\hline
+Image3 & 2017-08-13T03:04:17.691Z & big \\
+\hline
+\end{tabular}
+\caption{Images Information}
+\label{table:1}
+\end{table}
+
+\subsection{Sentinel-1 Data}
+
+This project is focused on using Sentinel-1 data as the main source of \gls{sar} satellite imagery. Sentinel-1 is a space mission carried out by \gls{esa} within the Copernicus Programme, consisting of a constellation of two satellites. The payload of Sentinel-1 is a Synthetic Aperture Radar in C band that provides continuous imagery (day, night and all weather). First Sentinel-1A satellite was launched on 3 April 2014. The images from Sentinel-1A used in this work are \gls{grdh} resolution class imagery. \gls{grdh} images have a resolution of 50 x 50 m and pixel spacing of 25 x 25 m (in range and azimuth respectively). Sentinel-1 data can be accessed from the open data source within the Copernicus Programme \cite{copernicus}.
+
+Performance evaluation of Sentinel-1 data in \gls{sar} ship detection was done in \cite{sent_perf}. Results seem to be promising as the ship detection on Sentinel-1 images yields better performance compared to some of the analogue satellites' image datasets.
